@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plyo for running</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f6f4ef; --ink:#1a1916; --muted:#5c574e; --card:#fff; --line:#e6e1d6; --accent:#b45309; --L:#3f6f4a; --M:#9a6b16; --H:#9b2c2c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161513; --ink:#f3efe6; --muted:#b7b0a4; --card:#221f1b; --line:#3a342c; --accent:#f5b461; --L:#7dba8a; --M:#e0b35a; --H:#f07171; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding: 1.25rem 1.1rem 0.4rem; max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin: 0 0 .4rem; }
+  h2 { font-size: 1.2rem; margin: 1.6rem 0 .5rem; }
+  h3 { font-size: 1.05rem; margin: 0 0 .35rem; }
+  .muted { color: var(--muted); }
+  main { max-width: 720px; margin: 0 auto; padding: 0 1.1rem 3rem; }
+  ol, ul { padding-left: 1.2rem; }
+  li { margin: .28rem 0; }
+  .nav { display:flex; flex-wrap:wrap; gap:.4rem; margin: 1rem 0 0; }
+  .nav a { font-size:.78rem; text-decoration:none; color:var(--accent); background:var(--card); border:1px solid var(--line); padding:.25rem .5rem; border-radius:999px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding: .9rem; margin: .85rem 0; }
+  .gauge { background:var(--card); border:1px solid var(--line); border-radius:14px; padding: .9rem; margin: .85rem 0; }
+  .gauge table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  .gauge th, .gauge td { text-align:left; padding:.35rem .25rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  .gauge th { color:var(--muted); font-weight:600; }
+  .stop { border-color: var(--H); }
+  .tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.02em; padding:.15rem .45rem; border-radius:999px; border:1px solid var(--line); }
+  .tag-L { color:var(--L); border-color:var(--L); }
+  .tag-M { color:var(--M); border-color:var(--M); }
+  .tag-H { color:var(--H); border-color:var(--H); }
+  code { font-size: .86em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Plyo for running</h1>
+  <p class="muted">Tendon spring for runners. Match the ID in the Gym log. Start Zone L.</p>
+  <nav class="nav">
+    <a href="#pl-ankling">pl-ankling</a>
+    <a href="#pl-pogo">pl-pogo</a>
+    <a href="#pl-skip">pl-skip</a>
+    <a href="#pl-line">pl-line</a>
+    <a href="#pl-squatstick">pl-squatstick</a>
+    <a href="#pl-pogocont">pl-pogocont</a>
+    <a href="#pl-box">pl-box</a>
+    <a href="#pl-hurdle">pl-hurdle</a>
+    <a href="#pl-bound">pl-bound</a>
+    <a href="#pl-slpogo">pl-slpogo</a>
+    <a href="#pl-depth">pl-depth</a>
+    <a href="#pl-slbound">pl-slbound</a>
+  </nav>
+</header>
+<main>
+<section>
+  <h2>Short guide</h2>
+  <p>Plyometrics train the stretch–shortening cycle — the tendon “spring,” especially Achilles — so you spend less energy at a given pace. They work best with your running and your RIR 2–3 lifting, after weeks of clean contacts, not as a replacement for either.</p>
+
+  <h2>Principles</h2>
+  <ol>
+    <li>Fresh first. Plyos before a run, or on a separate day — never after a hard session.</li>
+    <li>Quality over junk volume. Short ground contact, quiet stiff landings, soft knees. Stop when contacts get loud, slow, or sticky.</li>
+    <li>Progress slowly. Tendons adapt slower than muscle. Cap weekly contact increases around 10%.</li>
+    <li>Soft surface early (grass, rubber). Supportive shoes. No concrete depth jumps while learning.</li>
+    <li>Your lifting at RIR 2–3 is the green light for Zone L–M. Not yet for max depth jumps.</li>
+  </ol>
+
+  <h2>Intensity gauge</h2>
+  <div class="gauge">
+    <table>
+      <tr><th>Zone</th><th>Feel</th><th>Contacts</th></tr>
+      <tr><td><span class="tag tag-L">L</span> Low</td><td>Quiet landings, little flight, bilateral or skip</td><td>Soft, controlled</td></tr>
+      <tr><td><span class="tag tag-M">M</span> Med</td><td>Noticeable bounce, short amortization</td><td>Crisp “tap–pop”</td></tr>
+      <tr><td><span class="tag tag-H">H</span> High</td><td>Drop / single-leg / continuous reactive</td><td>Very short; RSI-style</td></tr>
+    </table>
+    <p class="muted" style="margin:.6rem 0 0">Aim high intent on each drill (~80–100% of that drill’s crisp max), not grinding fatigue. If height or pop drops ~10% in a set, end the plyo block.</p>
+  </div>
+
+  <h2>Quantity gauge</h2>
+  <div class="gauge">
+    <p>Count <strong>foot contacts</strong> (each landing = 1).</p>
+    <ul>
+      <li>Start (weeks 1–2): <strong>40–60</strong> contacts @ Zone L only</li>
+      <li>Build: <strong>60–80</strong> before adding Zone M</li>
+      <li>NSCA bands (ceiling, not a target): beginner 80–100 · intermediate 100–120 · advanced 120–140 per session</li>
+      <li>Runner-practical: often <strong>30–100</strong> quality contacts is enough if form holds</li>
+    </ul>
+    <p><strong>Sets / reps</strong></p>
+    <ul>
+      <li>L: 2–3 × 8–12 contacts (or 2–3 × 20–30s continuous pogos)</li>
+      <li>M: 3–4 × 4–8 contacts</li>
+      <li>H: 3–5 × 3–6 contacts</li>
+    </ul>
+    <p><strong>Rest:</strong> ~60–120+ s between high sets (about 1:5 to 1:10 work:rest). Walk; don’t gas.</p>
+    <p><strong>Frequency:</strong> 1–2×/week. 48–72 h between plyo sessions. Don’t stack hard legs + Zone H + tempo in the same 24 h.</p>
+  </div>
+
+  <div class="gauge stop">
+    <h3>Stop when…</h3>
+    <ul>
+      <li>Knees cave, heels slam, or contacts get long and sticky</li>
+      <li>Sharp Achilles / patellar pain (not normal DOMS)</li>
+      <li>Planned contacts done <em>or</em> quality gone — whichever first</li>
+    </ul>
+  </div>
+
+  <h2>What a good contact feels like</h2>
+  <ul>
+    <li>Quiet feet. Stiff ankles. Soft knees that don’t collapse inward.</li>
+    <li>Short time on the ground — “tap–pop,” not a sticky squat.</li>
+    <li>You could do a few more crisp reps. When pop dies, the set is over.</li>
+  </ul>
+
+  <h2>How to progress</h2>
+  <ul>
+    <li>Two clean weeks of Zone L → unlock Zone M.</li>
+    <li>Zone H only when pain-free and landings stay quiet for months of L/M.</li>
+    <li>Film a set when you can. Loud landings = easier ID or fewer contacts.</li>
+  </ul>
+
+  <h2>Pairing with runs</h2>
+  <div class="gauge">
+    <ul>
+      <li><strong>Easy run:</strong> OK after short L/M, or plyo then easy</li>
+      <li><strong>Tempo / intervals:</strong> plyo before if short and fresh, or separate day — never after</li>
+      <li><strong>Long run:</strong> no Zone H same day; L only if fresh</li>
+      <li><strong>Heavy lower lift:</strong> ≥24–48 h from Zone H</li>
+      <li><strong>Race week:</strong> cut volume 30–50%, or skip</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Catalog</h2>
+  <p class="muted">Easier to harder. Intensity tag + suggested contacts per set.</p>
+
+  <article class="card" id="pl-ankling">
+    <h3><code>pl-ankling</code> Ankling <span class="tag tag-L">L</span></h3>
+    <p>Fast feet in place, short stiff ankles. Little flight. Teaches stiffness without big impact.</p>
+    <p class="muted">2–3 × 8–12 contacts (or 20–30s)</p>
+  </article>
+  <article class="card" id="pl-pogo">
+    <h3><code>pl-pogo</code> Low pogo hops <span class="tag tag-L">L</span></h3>
+    <p>Bilateral, small amplitude, quiet landings. Stay tall through the ankles.</p>
+    <p class="muted">2–3 × 8–12 contacts</p>
+  </article>
+  <article class="card" id="pl-skip">
+    <h3><code>pl-skip</code> Light A-skip <span class="tag tag-L">L</span></h3>
+    <p>Rhythm + stiffness. Soft contacts, not a bound yet.</p>
+    <p class="muted">2–3 × 20–30s or 8–12 contacts/side</p>
+  </article>
+  <article class="card" id="pl-line">
+    <h3><code>pl-line</code> Line hops <span class="tag tag-L">L</span></h3>
+    <p>Bilateral hops forward–back or side–side over a line. Low height, quiet feet.</p>
+    <p class="muted">2–3 × 8–12 contacts</p>
+  </article>
+  <article class="card" id="pl-squatstick">
+    <h3><code>pl-squatstick</code> Squat jump to stick <span class="tag tag-L">L</span></h3>
+    <p>Jump up, land and pause. Teaches absorb before rebound. Soft knees, no slam.</p>
+    <p class="muted">2–3 × 6–8 contacts</p>
+  </article>
+
+  <article class="card" id="pl-pogocont">
+    <h3><code>pl-pogocont</code> Continuous pogos <span class="tag tag-M">M</span></h3>
+    <p>Higher intent, still bilateral. Short amortization — bounce, don’t squat.</p>
+    <p class="muted">3–4 × 6–10 contacts · unlock after 2 clean Zone L weeks</p>
+  </article>
+  <article class="card" id="pl-box">
+    <h3><code>pl-box</code> Low box jump <span class="tag tag-M">M</span></h3>
+    <p>Jump onto ≤20–30 cm box, step down. Soft stick on the box.</p>
+    <p class="muted">3–4 × 4–6 contacts</p>
+  </article>
+  <article class="card" id="pl-hurdle">
+    <h3><code>pl-hurdle</code> Mini-hurdle hops <span class="tag tag-M">M</span></h3>
+    <p>Bilateral continuous hops over low cones/hurdles. Keep contacts short.</p>
+    <p class="muted">3–4 × 4–8 contacts</p>
+  </article>
+  <article class="card" id="pl-bound">
+    <h3><code>pl-bound</code> Short alternating bound <span class="tag tag-M">M</span></h3>
+    <p>Short distance alternating leaps. Control the landing before the next push.</p>
+    <p class="muted">3–4 × 4–6 contacts/side</p>
+  </article>
+  <article class="card" id="pl-slpogo">
+    <h3><code>pl-slpogo</code> Single-leg pogo (low) <span class="tag tag-M">M</span></h3>
+    <p>Low single-leg hops. Only after bilateral pogos are quiet and crisp.</p>
+    <p class="muted">3 × 4–6 contacts/side</p>
+  </article>
+
+  <article class="card" id="pl-depth">
+    <h3><code>pl-depth</code> Depth / drop jump <span class="tag tag-H">H</span></h3>
+    <p>Step off ≤20–30 cm, rebound up. Increase height only if contact stays short. Advanced.</p>
+    <p class="muted">3–5 × 3–5 contacts · months of clean L/M first</p>
+  </article>
+  <article class="card" id="pl-slbound">
+    <h3><code>pl-slbound</code> Single-leg bound <span class="tag tag-H">H</span></h3>
+    <p>Hops for distance on one leg. High intensity — keep volume tiny.</p>
+    <p class="muted">3–5 × 3–5 contacts/side</p>
+  </article>
+</section>
+
+<footer class="muted" style="margin-top:2rem;font-size:.85rem">
+  Sources: Davies et al. IJSPT 2015; NSCA Essentials (plyo volume); Ramírez-Campillo et al. (plyo + RE); Eihara et al. 2022; Science Runner coaching synthesis. Not medical advice — stop for sharp tendon or joint pain.
+</footer>
+</main>
+</body>
+</html>
