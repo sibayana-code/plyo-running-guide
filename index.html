@@ -20,7 +20,7 @@
   ol, ul { padding-left: 1.2rem; }
   li { margin: .28rem 0; }
   .nav { display:flex; flex-wrap:wrap; gap:.4rem; margin: 1rem 0 0; }
-  .nav a { font-size:.78rem; text-decoration:none; color:var(--accent); background:var(--card); border:1px solid var(--line); padding:.25rem .5rem; border-radius:999px; }
+  .nav a { font-size:.8rem; text-decoration:none; color:var(--accent); background:var(--card); border:1px solid var(--line); padding:.45rem .7rem; min-height:44px; display:inline-flex; align-items:center; border-radius:999px; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding: .9rem; margin: .85rem 0; }
   .gauge { background:var(--card); border:1px solid var(--line); border-radius:14px; padding: .9rem; margin: .85rem 0; }
   .gauge table { width:100%; border-collapse:collapse; font-size:.92rem; }
@@ -32,6 +32,8 @@
   .tag-M { color:var(--M); border-color:var(--M); }
   .tag-H { color:var(--H); border-color:var(--H); }
   code { font-size: .86em; }
+  .ph { margin-top:.6rem; border-radius:10px; border:1px dashed var(--line); background:color-mix(in srgb, var(--card) 80%, var(--line)); color:var(--muted); font-size:.85rem; padding:2.2rem 1rem; text-align:center; }
+  .top { position:fixed; right:1rem; bottom:1rem; z-index:5; font-size:.8rem; text-decoration:none; color:var(--accent); background:var(--card); border:1px solid var(--line); padding:.55rem .75rem; border-radius:999px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
 </style>
 </head>
 <body>
@@ -80,16 +82,19 @@
 
   <h2>Quantity gauge</h2>
   <div class="gauge">
-    <p><strong>Default session target: 50 foot contacts</strong> (each landing = 1). Log contacts, not seconds.</p>
+    <p><strong>Today’s number: 50 foot contacts</strong> (1 landing = 1). Log contacts only.</p>
+    <table>
+      <tr><th>Phase</th><th>Contacts</th><th>Zone</th></tr>
+      <tr><td>Weeks 1–2</td><td>~50</td><td>L only</td></tr>
+      <tr><td>Build</td><td>~50–60</td><td>add M (harder IDs)</td></tr>
+      <tr><td>Ceiling</td><td>80–100</td><td>if pop stays crisp</td></tr>
+    </table>
     <ul>
-      <li>Weeks 1–2: ~50 contacts, Zone L only</li>
-      <li>Then: still ~50–60 contacts while you add Zone M (harder IDs, not more junk volume)</li>
-      <li>Ceiling if form stays crisp: about 80–100 contacts/session — stop earlier if pop dies</li>
+      <li><strong>Hit ~50:</strong> 2–3 IDs · card sets win</li>
+      <li><strong>Rest:</strong> 60–120 s (longer for H)</li>
+      <li><strong>Freq:</strong> 1–2×/week · 48–72 h apart · no hard legs + H + tempo in 24 h</li>
+      <li class="muted">Sample: <code>pl-ankling</code> 2×10 + <code>pl-pogo</code> 2×10 + <code>pl-line</code> 2×8 ≈ 56</li>
     </ul>
-    <p><strong>How to hit ~50:</strong> pick 2–3 IDs. Use the set scheme on each card. Cards win over any old global table.</p>
-    <p><strong>Rest:</strong> ~60–120 s between sets (longer for Zone H). Walk; don’t gas.</p>
-    <p><strong>Frequency:</strong> 1–2×/week. 48–72 h between plyo sessions. Don’t stack hard legs + Zone H + tempo in the same 24 h.</p>
-    <p class="muted">Sample starter: <code>pl-ankling</code> 2×10 + <code>pl-pogo</code> 2×10 + <code>pl-line</code> 2×8 ≈ 56 contacts.</p>
   </div>
 
   <div class="gauge stop">
@@ -137,69 +142,82 @@
     <h3><code>pl-ankling</code> Ankling <span class="tag tag-L">L</span></h3>
     <p>Fast feet in place, short stiff ankles. Little flight. Teaches stiffness without big impact.</p>
     <p class="muted">2–3 × 10 contacts · next: <code>pl-pogo</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-pogo">
     <h3><code>pl-pogo</code> Low pogo hops <span class="tag tag-L">L</span></h3>
     <p>Bilateral, small amplitude, quiet landings. Stay tall through the ankles.</p>
     <p class="muted">2–3 × 10 contacts · next: <code>pl-skip</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-skip">
     <h3><code>pl-skip</code> Light A-skip <span class="tag tag-L">L</span></h3>
     <p>Rhythm + stiffness. Soft contacts, not a bound yet.</p>
     <p class="muted">2–3 × 10 contacts total (count every footfall) · next: <code>pl-line</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-line">
     <h3><code>pl-line</code> Line hops <span class="tag tag-L">L</span></h3>
     <p>Bilateral hops forward–back or side–side over a line. Low height, quiet feet.</p>
     <p class="muted">2–3 × 8 contacts · next: <code>pl-squatstick</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-squatstick">
     <h3><code>pl-squatstick</code> Squat jump to stick <span class="tag tag-L">L</span></h3>
     <p>Jump up, land and pause. Teaches absorb before rebound. Soft knees, no slam.</p>
     <p class="muted">2–3 × 8 contacts · next (after 2 clean Zone L weeks): <code>pl-pogocont</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
 
   <article class="card" id="pl-pogocont">
     <h3><code>pl-pogocont</code> Continuous pogos <span class="tag tag-M">M</span></h3>
     <p>Higher intent, still bilateral. Short amortization — bounce, don’t squat.</p>
     <p class="muted">3 × 8 contacts · unlock after 2 clean Zone L weeks · next: <code>pl-box</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-box">
     <h3><code>pl-box</code> Low box jump <span class="tag tag-M">M</span></h3>
     <p>Jump onto ≤20–30 cm box, step down. Soft stick on the box.</p>
     <p class="muted">3 × 5 contacts · next: <code>pl-hurdle</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-hurdle">
     <h3><code>pl-hurdle</code> Mini-hurdle hops <span class="tag tag-M">M</span></h3>
     <p>Bilateral continuous hops over low cones/hurdles. Keep contacts short.</p>
     <p class="muted">3 × 6 contacts · next: <code>pl-bound</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-bound">
     <h3><code>pl-bound</code> Short alternating bound <span class="tag tag-M">M</span></h3>
     <p>Short distance alternating leaps. Control the landing before the next push.</p>
     <p class="muted">3 × 5 contacts <em>per side</em> (log each side; total ≈ 30) · next: <code>pl-slpogo</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-slpogo">
     <h3><code>pl-slpogo</code> Single-leg pogo (low) <span class="tag tag-M">M</span></h3>
     <p>Low single-leg hops. Only after bilateral pogos are quiet and crisp.</p>
     <p class="muted">3 × 5 contacts <em>per side</em> · next (advanced): <code>pl-depth</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
 
   <article class="card" id="pl-depth">
     <h3><code>pl-depth</code> Depth / drop jump <span class="tag tag-H">H</span></h3>
     <p>Step off ≤20–30 cm, rebound up. Increase height only if contact stays short. Advanced.</p>
     <p class="muted">3 × 4 contacts · months of clean L/M first · next: <code>pl-slbound</code></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
   <article class="card" id="pl-slbound">
     <h3><code>pl-slbound</code> Single-leg bound <span class="tag tag-H">H</span></h3>
     <p>Hops for distance on one leg. High intensity — keep volume tiny.</p>
     <p class="muted">3 × 4 contacts <em>per side</em></p>
-  </article>
+    <div class="ph">Photo pending — match form cues</div>
+</article>
 </section>
 
 <footer class="muted" style="margin-top:2rem;font-size:.85rem">
   Sources: Davies et al. IJSPT 2015; NSCA Essentials (plyo volume); Ramírez-Campillo et al. (plyo + RE); Eihara et al. 2022; Science Runner coaching synthesis. Not medical advice — stop for sharp tendon or joint pain.
 </footer>
 </main>
+<a class="top" href="#">Top</a>
 </body>
 </html>
