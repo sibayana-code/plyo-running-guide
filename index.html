@@ -10,11 +10,12 @@
     :root { --bg:#161513; --ink:#f3efe6; --muted:#b7b0a4; --card:#221f1b; --line:#3a342c; --accent:#f5b461; --L:#7dba8a; --M:#e0b35a; --H:#f07171; }
   }
   * { box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
   body { margin:0; font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
   header { padding: 1.25rem 1.1rem 0.4rem; max-width: 720px; margin: 0 auto; }
   h1 { font-size: 1.6rem; margin: 0 0 .4rem; }
   h2 { font-size: 1.2rem; margin: 1.6rem 0 .5rem; }
-  h3 { font-size: 1.05rem; margin: 0 0 .35rem; }
+  h3 { font-size: 1.05rem; margin: 0 0 .35rem; overflow-wrap: break-word; }
   .muted { color: var(--muted); }
   main { max-width: 720px; margin: 0 auto; padding: 0 1.1rem 3rem; }
   ol, ul { padding-left: 1.2rem; }
@@ -31,7 +32,20 @@
   .tag-L { color:var(--L); border-color:var(--L); }
   .tag-M { color:var(--M); border-color:var(--M); }
   .tag-H { color:var(--H); border-color:var(--H); }
-  code { font-size: .86em; }
+  .mchips { display:flex; flex-wrap:wrap; gap:.32rem; margin:.05rem 0 .5rem; max-width:100%; }
+  .mchip { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.02em; padding:.15rem .45rem; border-radius:999px; border:1px solid var(--line); max-width:100%; white-space:nowrap; }
+  .mchip-p { background:var(--ink); color:var(--card); border-color:var(--ink); }
+  .mchip-s { color:var(--muted); background:transparent; }
+  .legend { background:var(--card); border:1px solid var(--line); border-radius:14px; padding: .75rem .9rem; margin: .85rem 0 1rem; }
+  .legend-key { display:flex; flex-wrap:wrap; align-items:center; gap:.32rem; margin:0 0 .35rem; }
+  .legend-key .hint { font-size:.8rem; }
+  .legend svg { display:block; width:min(100%, 260px); height:auto; margin:.15rem auto .1rem; }
+  .sil-base { fill: color-mix(in srgb, var(--muted) 22%, var(--card)); stroke: var(--line); stroke-width: 1.2; }
+  .sil-m { fill: color-mix(in srgb, var(--accent) 40%, var(--card)); stroke: color-mix(in srgb, var(--accent) 65%, var(--line)); stroke-width: 1; }
+  .sil-label { fill: var(--muted); font: 700 11px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .legend-tokens { font-size:.78rem; line-height:1.5; margin:.2rem 0 0; }
+  .legend-tokens span { white-space:nowrap; }
+  code { font-size: .86em; white-space: nowrap; }
   article.card img { display:block; width:100%; max-width:100%; height:auto; margin-top:.6rem; border-radius:10px; border:1px solid var(--line); }
   .ph { margin-top:.6rem; border-radius:10px; border:1px dashed var(--line); background:color-mix(in srgb, var(--card) 80%, var(--line)); color:var(--muted); font-size:.85rem; padding:2.2rem 1rem; text-align:center; }
   .top { position:fixed; right:1rem; bottom:1rem; z-index:5; font-size:.8rem; text-decoration:none; color:var(--accent); background:var(--card); border:1px solid var(--line); padding:.55rem .75rem; border-radius:999px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
@@ -140,103 +154,228 @@
 
 <section>
   <h2>Catalog</h2>
-  <p class="muted">Easier to harder. Intensity tag + contacts per set. Photos on ankling, pogo, skip, line; gray boxes = remaining slots. New from beginner-reel refs: <code>pl-splitpogo</code>, <code>pl-slline</code>, <code>pl-skater</code>.</p>
+  <p class="muted">Easier to harder. Intensity tag + contacts per set. Filled chips = primary; outline = secondary. Photos on ankling, pogo, splitpogo, skip, line, squatstick; gray boxes = remaining slots. New from beginner-reel refs: <code>pl-splitpogo</code>, <code>pl-slline</code>, <code>pl-skater</code>.</p>
+
+  <div class="legend" id="muscle-legend">
+    <p class="legend-key">
+      <span class="mchip mchip-p">primary</span>
+      <span class="mchip mchip-s">secondary</span>
+      <span class="muted hint">1–2 each · kebab tokens</span>
+    </p>
+    <svg viewBox="0 0 240 188" role="img" aria-label="Front and back muscle map for the tokens used on this page">
+      <g transform="translate(52,6)">
+        <circle class="sil-base" cx="0" cy="11" r="9"/>
+        <path class="sil-base" d="M-15 24c2-6 28-6 30 0l6 46c1 8-6 12-21 12s-22-4-21-12z"/>
+        <path class="sil-base" d="M-16 30c-8 6-12 22-10 38 1 4 6 4 7 0 1-12 4-24 8-32z"/>
+        <path class="sil-base" d="M16 30c8 6 12 22 10 38-1 4-6 4-7 0-1-12-4-24-8-32z"/>
+        <ellipse class="sil-m" cx="0" cy="52" rx="8" ry="14"/>
+        <ellipse class="sil-m" cx="-8" cy="78" rx="7" ry="5"/>
+        <ellipse class="sil-m" cx="8" cy="78" rx="7" ry="5"/>
+        <ellipse class="sil-m" cx="-9" cy="108" rx="8" ry="20"/>
+        <ellipse class="sil-m" cx="9" cy="108" rx="8" ry="20"/>
+        <rect class="sil-m" x="-13" y="130" width="7" height="26" rx="3"/>
+        <rect class="sil-m" x="6" y="130" width="7" height="26" rx="3"/>
+        <text class="sil-label" x="0" y="174" text-anchor="middle">Front</text>
+      </g>
+      <g transform="translate(188,6)">
+        <circle class="sil-base" cx="0" cy="11" r="9"/>
+        <path class="sil-base" d="M-15 24c2-6 28-6 30 0l6 46c1 8-6 12-21 12s-22-4-21-12z"/>
+        <path class="sil-base" d="M-16 30c-8 6-12 22-10 38 1 4 6 4 7 0 1-12 4-24 8-32z"/>
+        <path class="sil-base" d="M16 30c8 6 12 22 10 38-1 4-6 4-7 0-1-12-4-24-8-32z"/>
+        <ellipse class="sil-m" cx="-16" cy="72" rx="6" ry="10"/>
+        <ellipse class="sil-m" cx="16" cy="72" rx="6" ry="10"/>
+        <ellipse class="sil-m" cx="-8" cy="82" rx="9" ry="8"/>
+        <ellipse class="sil-m" cx="8" cy="82" rx="9" ry="8"/>
+        <ellipse class="sil-m" cx="-9" cy="110" rx="8" ry="18"/>
+        <ellipse class="sil-m" cx="9" cy="110" rx="8" ry="18"/>
+        <ellipse class="sil-m" cx="-8" cy="142" rx="7" ry="14"/>
+        <ellipse class="sil-m" cx="8" cy="142" rx="7" ry="14"/>
+        <text class="sil-label" x="0" y="174" text-anchor="middle">Back</text>
+      </g>
+    </svg>
+    <p class="legend-tokens muted"><span>abs</span> · <span>calves</span> · <span>glutes</span> · <span>hamstrings</span> · <span>hip-abductors</span> · <span>hip-flexors</span> · <span>quads</span> · <span>tibialis</span></p>
+  </div>
 
   <article class="card" id="pl-ankling">
     <h3><code>pl-ankling</code> Ankling <span class="tag tag-L">L</span></h3>
+    <div class="mchips" aria-label="Primary calves. Secondary tibialis, quads.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="tibialis">tibialis</span>
+      <span class="mchip mchip-s" data-muscle="quads">quads</span>
+    </div>
     <p>Fast feet in place, short stiff ankles. Little flight. Teaches stiffness without big impact.</p>
     <p class="muted">2–3 × 10 contacts · next: <code>pl-pogo</code></p>
-    <img src="img/pl-ankling.jpg" alt="pl-ankling form: balls of feet, stiff ankles, little flight" width="1200" height="900" loading="lazy" />
-</article>
+    <img src="img/pl-ankling.jpg" alt="pl-ankling form: balls of feet, stiff ankles, little flight" width="1200" height="800" loading="lazy" />
+  </article>
   <article class="card" id="pl-pogo">
     <h3><code>pl-pogo</code> Low pogo hops <span class="tag tag-L">L</span></h3>
+    <div class="mchips" aria-label="Primary calves. Secondary quads, abs.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="quads">quads</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Bilateral, small amplitude, quiet landings. Stay tall through the ankles.</p>
     <p class="muted">2–3 × 10 contacts · next: <code>pl-splitpogo</code></p>
-    <img src="img/pl-pogo.jpg" alt="pl-pogo form: low bilateral hop, short ankle pop" width="1200" height="900" loading="lazy" />
-</article>
+    <img src="img/pl-pogo.jpg" alt="pl-pogo form: low bilateral hop, short ankle pop" width="1200" height="800" loading="lazy" />
+  </article>
   <article class="card" id="pl-splitpogo">
     <h3><code>pl-splitpogo</code> Split-stance pogo <span class="tag tag-L">L</span></h3>
+    <div class="mchips" aria-label="Primary calves. Secondary hip-abductors, abs.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="hip-abductors">hip-abductors</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Same short ankle pop as bilateral pogo, but staggered stance (one foot slightly forward). Quiet feet; don’t turn it into a lunge bounce.</p>
     <p class="muted">2–3 × 8 contacts · switch lead foot each set · next: <code>pl-skip</code></p>
-    <div class="ph">Photo pending — match form cues</div>
-</article>
+    <img src="img/pl-splitpogo.jpg" alt="pl-splitpogo form: staggered stance, short ankle pop" width="1200" height="900" loading="lazy" />
+  </article>
 
   <article class="card" id="pl-skip">
     <h3><code>pl-skip</code> Light A-skip <span class="tag tag-L">L</span></h3>
+    <div class="mchips" aria-label="Primary hip-flexors, calves. Secondary glutes, abs.">
+      <span class="mchip mchip-p" data-muscle="hip-flexors">hip-flexors</span>
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Rhythm + stiffness. Soft contacts, not a bound yet.</p>
     <p class="muted">2–3 × 10 contacts total (count every footfall) · next: <code>pl-line</code></p>
-    <img src="img/pl-skip.jpg" alt="pl-skip form: light A-skip, soft stiff contacts" width="1200" height="900" loading="lazy" />
-</article>
+    <img src="img/pl-skip.jpg" alt="pl-skip form: light A-skip, soft stiff contacts" width="1200" height="800" loading="lazy" />
+  </article>
   <article class="card" id="pl-line">
     <h3><code>pl-line</code> Line hops <span class="tag tag-L">L</span></h3>
+    <div class="mchips" aria-label="Primary calves, quads. Secondary hip-abductors, abs.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-p" data-muscle="quads">quads</span>
+      <span class="mchip mchip-s" data-muscle="hip-abductors">hip-abductors</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Bilateral hops forward–back or side–side over a line. Low height, quiet feet.</p>
     <p class="muted">2–3 × 8 contacts · next: <code>pl-squatstick</code> · after clean line: <code>pl-slline</code></p>
-    <img src="img/pl-line.jpg" alt="pl-line form: bilateral low hops over a line" width="1200" height="900" loading="lazy" />
-</article>
+    <img src="img/pl-line.jpg" alt="pl-line form: bilateral low hops over a line" width="1200" height="800" loading="lazy" />
+  </article>
   <article class="card" id="pl-squatstick">
     <h3><code>pl-squatstick</code> Squat jump to stick <span class="tag tag-L">L</span></h3>
+    <div class="mchips" aria-label="Primary quads, glutes. Secondary hamstrings, calves.">
+      <span class="mchip mchip-p" data-muscle="quads">quads</span>
+      <span class="mchip mchip-p" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-s" data-muscle="hamstrings">hamstrings</span>
+      <span class="mchip mchip-s" data-muscle="calves">calves</span>
+    </div>
     <p>Jump up, land and pause. Teaches absorb before rebound. Soft knees, no slam.</p>
     <p class="muted">2–3 × 8 contacts · next (after 2 clean Zone L weeks): <code>pl-pogocont</code></p>
-    <div class="ph">Photo pending — match form cues</div>
-</article>
+    <img src="img/pl-squatstick.jpg" alt="pl-squatstick form: jump, soft stick landing" width="1200" height="900" loading="lazy" />
+  </article>
 
 
   <article class="card" id="pl-slline">
     <h3><code>pl-slline</code> Single-leg line hops <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary calves, quads. Secondary hip-abductors, abs.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-p" data-muscle="quads">quads</span>
+      <span class="mchip mchip-s" data-muscle="hip-abductors">hip-abductors</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>One-foot hops forward–back (or side–side) over a line. Only after bilateral <code>pl-line</code> is quiet and crisp. Soft knee, no knee cave.</p>
     <p class="muted">3 × 5 contacts <em>per side</em> (log each side; session total ≈ 30 — most of a ~50 day) · unlock after clean <code>pl-line</code> · next: <code>pl-skater</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
 
   <article class="card" id="pl-pogocont">
     <h3><code>pl-pogocont</code> Continuous pogos <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary calves. Secondary quads, glutes.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="quads">quads</span>
+      <span class="mchip mchip-s" data-muscle="glutes">glutes</span>
+    </div>
     <p>Higher intent, still bilateral. Short amortization — bounce, don’t squat.</p>
     <p class="muted">3 × 8 contacts · unlock after 2 clean Zone L weeks · next: <code>pl-box</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
   <article class="card" id="pl-box">
     <h3><code>pl-box</code> Low box jump <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary quads, glutes. Secondary calves, abs.">
+      <span class="mchip mchip-p" data-muscle="quads">quads</span>
+      <span class="mchip mchip-p" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-s" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Jump onto ≤20–30 cm box, step down. Soft stick on the box.</p>
     <p class="muted">3 × 5 contacts · next: <code>pl-hurdle</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
   <article class="card" id="pl-hurdle">
     <h3><code>pl-hurdle</code> Mini-hurdle hops <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary calves, quads. Secondary hip-flexors, abs.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-p" data-muscle="quads">quads</span>
+      <span class="mchip mchip-s" data-muscle="hip-flexors">hip-flexors</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Bilateral continuous hops over low cones/hurdles. Keep contacts short.</p>
     <p class="muted">3 × 6 contacts · next: <code>pl-skater</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
   <article class="card" id="pl-skater">
     <h3><code>pl-skater</code> Lateral skater jumps <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary hip-abductors, glutes. Secondary calves, quads.">
+      <span class="mchip mchip-p" data-muscle="hip-abductors">hip-abductors</span>
+      <span class="mchip mchip-p" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-s" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="quads">quads</span>
+    </div>
     <p>Bound side-to-side, land on one leg, free leg sweeps behind lightly. Running-relevant lateral stiffness — control the stick before the next push.</p>
     <p class="muted">3 × 5 contacts <em>per side</em> (log each side; session total ≈ 30 — most of a ~50 day) · next: <code>pl-bound</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
   <article class="card" id="pl-bound">
     <h3><code>pl-bound</code> Short alternating bound <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary glutes, hamstrings. Secondary calves, abs.">
+      <span class="mchip mchip-p" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-p" data-muscle="hamstrings">hamstrings</span>
+      <span class="mchip mchip-s" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="abs">abs</span>
+    </div>
     <p>Short distance alternating leaps. Control the landing before the next push.</p>
     <p class="muted">3 × 5 contacts <em>per side</em> (log each side; session total ≈ 30 — most of a ~50 day) · next: <code>pl-slpogo</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
   <article class="card" id="pl-slpogo">
     <h3><code>pl-slpogo</code> Single-leg pogo (low) <span class="tag tag-M">M</span></h3>
+    <div class="mchips" aria-label="Primary calves. Secondary hip-abductors, quads.">
+      <span class="mchip mchip-p" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="hip-abductors">hip-abductors</span>
+      <span class="mchip mchip-s" data-muscle="quads">quads</span>
+    </div>
     <p>Low single-leg hops. Only after bilateral pogos are quiet and crisp.</p>
     <p class="muted">3 × 5 contacts <em>per side</em> (log each side; session total ≈ 30 — most of a ~50 day) · next (advanced): <code>pl-depth</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
 
   <article class="card" id="pl-depth">
     <h3><code>pl-depth</code> Depth / drop jump <span class="tag tag-H">H</span></h3>
+    <div class="mchips" aria-label="Primary quads, glutes. Secondary calves, hamstrings.">
+      <span class="mchip mchip-p" data-muscle="quads">quads</span>
+      <span class="mchip mchip-p" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-s" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="hamstrings">hamstrings</span>
+    </div>
     <p>Step off ≤20–30 cm, rebound up. Increase height only if contact stays short. Advanced.</p>
     <p class="muted">3 × 4 contacts · months of clean L/M first · next: <code>pl-slbound</code></p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
   <article class="card" id="pl-slbound">
     <h3><code>pl-slbound</code> Single-leg bound <span class="tag tag-H">H</span></h3>
+    <div class="mchips" aria-label="Primary glutes, hamstrings. Secondary calves, hip-abductors.">
+      <span class="mchip mchip-p" data-muscle="glutes">glutes</span>
+      <span class="mchip mchip-p" data-muscle="hamstrings">hamstrings</span>
+      <span class="mchip mchip-s" data-muscle="calves">calves</span>
+      <span class="mchip mchip-s" data-muscle="hip-abductors">hip-abductors</span>
+    </div>
     <p>Hops for distance on one leg. High intensity — keep volume tiny.</p>
     <p class="muted">3 × 4 contacts <em>per side</em> (log each side; session total ≈ 24 — keep tiny; don’t stack another big ID)</p>
     <div class="ph">Photo pending — match form cues</div>
-</article>
+  </article>
 </section>
 
 <footer class="muted" style="margin-top:2rem;font-size:.85rem">
